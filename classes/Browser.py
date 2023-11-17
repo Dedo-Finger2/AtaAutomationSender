@@ -31,6 +31,7 @@ class Browser:
             EC.visibility_of_element_located((By.XPATH, xpath_value)))
         field.clear()
         field.send_keys(text_value)
+        return field
 
     def access_field_by_id(self, id_value: str, text_value: str):
         sleep(0.5)
@@ -41,3 +42,9 @@ class Browser:
     def click_element(self, by: str | By, attribute_value: str):
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((by, attribute_value)))
         element.click()
+
+
+    def get_element(self, by: str | By, attribute_value: str):
+        element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located((by, attribute_value)))
+        return element
+
